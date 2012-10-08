@@ -1,0 +1,41 @@
+<%= link_to("<<Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="tutorial new">
+  <h2>Create New Tutorial Listing</h2>
+
+  <%= simple_form_for(@tutorial, :url => {:action => "create"}) do |t| %>
+
+      <table summary="Subject form fields">
+        <tr>
+          <td><%= t.input(:name) %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.association :author, :collection => Author.all(:order => "name")  %></td>
+          <td><%= link_to("New Author", :controller => 'authors', :action => 'new', :target => '_new') %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.association :programs, :as => :check_boxes %></td>
+          <td><%= link_to("New Program", :controller => 'programs', :action => 'new', :target => '_new') %></td>
+        </tr>
+        <tr>
+          <% t.input :create_date do %>
+          <td><%= t.date_select(:create_date, :discard_day => true) %></td>
+          <% end %>
+        </tr>
+        <tr>
+
+          <td><%= t.input(:link) %></td>
+        </tr>
+
+      </table>
+
+      <div class="form-buttons">
+        <%= submit_tag("Add Tutorial") %>
+      </div>
+
+
+
+  <% end %>
+</div>

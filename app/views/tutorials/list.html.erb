@@ -1,0 +1,36 @@
+<% @page_title = "Tutorial List" %>
+<div class="tutorial list">
+  <%= flash[:notice] %>
+</div>
+
+<div class="tutorial list">
+  <h2> Tutorials</h2>
+
+  <table class="listing" summary="tutorial list">
+    <tr class="header">
+      <th>Created Date</th>
+      <th>Tutorial</th>
+      <th>Author</th>
+      <th>Program</th>
+      <th>Link</th>
+
+
+    </tr>
+    <% @tutorial.each do |t| %>
+        <tr>
+          <td><%= distance_of_time_in_words(t.create_date, Time.now)+" ago" %></td>
+          <td><%= link_to(t.name, t.link) %></td>
+          <td><%= t.author.name %></td>
+          <td><%= t.program %></td>
+          <td><%= link_to("click here",t.link) %></td>
+
+
+        </tr>
+
+    <% end %>
+
+  </table>
+
+
+
+</div>

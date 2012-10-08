@@ -1,0 +1,37 @@
+<% @page_title = "Tutorial List" %>
+<div class="tutorial list">
+  <%= flash[:notice] %>
+</div>
+
+
+<div class="tutorial list">
+  <h2> Authors</h2>
+
+  <table class="listing" summary="tutorial list">
+    <tr class="header">
+
+      <th>Author</th>
+      <th>Website</th>
+      <th>Programs</th>
+
+
+    </tr>
+    <% @author.each do |t| %>
+        <tr>
+          <td><%= t.name %></td>
+          <td><%= t.website %></td>
+          <td><% t.programs.each do |i|  %>
+            <%= i.name %>
+          <% end %>
+          </td>
+
+
+        </tr>
+
+    <% end %>
+
+  </table>
+
+
+
+</div>

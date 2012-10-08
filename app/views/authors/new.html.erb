@@ -1,0 +1,28 @@
+<div class="author new">
+  <h2>Create New Author Listing</h2>
+
+  <%= simple_form_for(@author, :url => {:action => "create"}) do |t| %>
+
+      <table summary="Subject form fields">
+        <tr>
+
+          <td><%= t.input(:name) %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.input(:website) %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.association :programs, :as => :check_boxes  %></td>
+          <td><%= link_to("New Program", :controller => 'programs', :action => 'new', :target => '_new') %></td>
+        </tr>
+
+
+      </table>
+
+      <div class="form-buttons">
+        <%= submit_tag("Add Author") %>
+      </div>
+      <% end %>
+    </div>

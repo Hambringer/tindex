@@ -1,0 +1,30 @@
+<div class="program new">
+  <h2>Create New Program Listing</h2>
+
+  <%= simple_form_for(:program, :url => {:action => "create"}) do |t| %>
+
+      <table summary="Subject form fields">
+        <tr>
+
+          <td><%= t.input(:name) %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.input(:version ) %></td>
+        </tr>
+        <tr>
+
+          <td><%= t.input(:developer)  %></td>
+        </tr>
+        <tr>
+         <td><%= t.input :website %></td>
+        </tr>
+
+
+      </table>
+
+      <div class="form-buttons">
+        <%= submit_tag("Add Program") %>
+      </div>
+  <% end %>
+</div>
